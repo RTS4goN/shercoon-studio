@@ -1,6 +1,7 @@
 'use strict';
 const STUDIO = {name:'Shercoon Studio',shortName:'SHERCOON',email:'mygpt.chating@gmail.com',linkedIn:'https://www.linkedin.com/in/kurbanov-sherzod-808705245/'};
 const projects = {
+  'queen-of-hearts': {title:'Queen of Hearts',collection:'Shercoon Studio',description:'A crowned character in metallic armour, with an ornate sword and a heart card.',images:[['queen-of-hearts','Colour render','png','assets/queen-of-hearts.png']]},
   'malenia': {title:'Malenia',collection:'Maidens of Ring',slug:'maidens-of-ring',description:'A sweeping blade and flowing cloak, shown in the original unpainted sculpt renders.',images:[['malenia','Unpainted front'],['malenia-back','Unpainted rear'],['malenia-detail','Sculpt detail']]},
   'alyss': {title:'Alyss Carroll',collection:'Cursed Tales',slug:'cursed-tales',description:'Twin blades, flowing fabric and a sculpted Wonderland base. Explore the colour render and unpainted sculpt from both sides.',images:[['alyss-colour','Colour render'],['alyss','Unpainted front'],['alyss-back','Unpainted rear']]},
   'imhotep': {title:'Imhotep Monster',collection:'Obsidian Ankh',slug:'obsidian-ankh',description:'A multi-armed Egyptian creature with an ornate headdress and a monumental base.',images:[['imhotep','Full character'],['imhotep-detail','Sculpt detail']]},
@@ -19,7 +20,7 @@ let currentProject=null,imageIndex=0,lastProjectTrigger=null,lastBriefTrigger=nu
 function syncScroll(){document.body.classList.toggle('modal-open',projectDialog.open||briefDialog.open);}
 function renderImage(){
   const p=projects[currentProject],entry=p.images[imageIndex],img=$('#project-image');
-  img.src=`assets/${entry[0]}-1400.${entry[2]||'webp'}`;
+  img.src=entry[3]||`assets/${entry[0]}-1400.${entry[2]||'webp'}`;
   img.alt=`${p.title} — ${entry[1].toLowerCase()}, digital sculpt render`;
   $('#image-status').textContent=`${String(imageIndex+1).padStart(2,'0')} / ${String(p.images.length).padStart(2,'0')} — ${entry[1]}`;
   $$('.thumbnail').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===imageIndex)));
@@ -29,9 +30,10 @@ function openProject(key,trigger){
   currentProject=key;imageIndex=0;if(trigger)lastProjectTrigger=trigger;
   $('#project-title').textContent=p.title;$('#project-collection').textContent=p.collection;
   $('#project-description').textContent=p.description;
+  $('#project-campaign').hidden=!p.slug;
   $('#project-campaign').href=`https://www.kickstarter.com/projects/elysianstudio/${p.slug}`;
   const thumbs=$('#project-thumbnails');thumbs.replaceChildren();
-  p.images.forEach(([id,label,ext='webp'],index)=>{const b=document.createElement('button');b.type='button';b.className='thumbnail';b.setAttribute('aria-label',label);b.setAttribute('aria-pressed',String(index===0));const img=document.createElement('img');img.src=`assets/${id}-640.${ext}`;img.alt='';b.append(img);b.addEventListener('click',()=>{imageIndex=index;renderImage();});thumbs.append(b);});
+  p.images.forEach(([id,label,ext='webp',source],index)=>{const b=document.createElement('button');b.type='button';b.className='thumbnail';b.setAttribute('aria-label',label);b.setAttribute('aria-pressed',String(index===0));const img=document.createElement('img');img.src=source||`assets/${id}-640.${ext}`;img.alt='';b.append(img);b.addEventListener('click',()=>{imageIndex=index;renderImage();});thumbs.append(b);});
   renderImage();if(!projectDialog.open)projectDialog.showModal();syncScroll();
 }
 function clearProjectHash(){if(location.hash.startsWith('#project/'))history.replaceState(null,'',location.pathname+location.search+'#work');}

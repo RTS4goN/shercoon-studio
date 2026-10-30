@@ -35,3 +35,6 @@ body{overflow-x:clip}
 .cast-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:20px;font-size:10px;letter-spacing:1.5px;color:#b6bac3}.cast-position{color:var(--yellow);font-variant-numeric:tabular-nums}
 @media(max-width:650px){.cast-section{padding-top:38px}.cast-heading{align-items:center;gap:12px}.cast-heading h2{font-size:39px;max-width:220px}.cast-heading .eyebrow{font-size:9px}.cast-arrows{gap:6px}.cast-arrows button{width:44px;height:44px}.cast-toolbar{display:block;margin-top:22px}.cast-jumps{gap:0 17px}.cast-jumps button{font-size:11px}.cast-hint{display:block;margin:10px 0 4px}.cast-card{width:74vw;flex-basis:74vw}.cast-render{height:390px}.cast-track{gap:18px;padding-inline:20px}.cast-card strong{font-size:20px}.cast-bottom{font-size:9px}}
 
+
+/* Preserve the complete owner-supplied render, including sword and base. */
+.work-queen .work-image>img{object-fit:contain}
