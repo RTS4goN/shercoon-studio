@@ -1,7 +1,7 @@
 'use strict';
 const STUDIO = {name:'Shercoon Studio',shortName:'SHERCOON',email:'mygpt.chating@gmail.com',linkedIn:'https://www.linkedin.com/in/kurbanov-sherzod-808705245/'};
 const projects = {
-  'queen-of-hearts': {title:'Queen of Hearts',collection:'Shercoon Studio',description:'A crowned character in metallic armour, with an ornate sword and a heart card.',images:[['queen-of-hearts','Colour render','png','assets/queen-of-hearts.png']]},
+  'scarlett': {title:'Scarlett Wolfe',collection:'Cursed Tales',slug:'cursed-tales',description:'A hooded character with an ornate scythe, flowing cape and sculpted woodland base.',images:[['scarlett','Front view'],['scarlett-back','Rear view']]},
   'malenia': {title:'Malenia',collection:'Maidens of Ring',slug:'maidens-of-ring',description:'A sweeping blade and flowing cloak, shown in the original unpainted sculpt renders.',images:[['malenia','Unpainted front'],['malenia-back','Unpainted rear'],['malenia-detail','Sculpt detail']]},
   'alyss': {title:'Alyss Carroll',collection:'Cursed Tales',slug:'cursed-tales',description:'Twin blades, flowing fabric and a sculpted Wonderland base. Explore the colour render and unpainted sculpt from both sides.',images:[['alyss-colour','Colour render'],['alyss','Unpainted front'],['alyss-back','Unpainted rear']]},
   'imhotep': {title:'Imhotep Monster',collection:'Obsidian Ankh',slug:'obsidian-ankh',description:'A multi-armed Egyptian creature with an ornate headdress and a monumental base.',images:[['imhotep','Full character'],['imhotep-detail','Sculpt detail']]},
