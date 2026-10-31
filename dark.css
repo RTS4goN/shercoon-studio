@@ -19,3 +19,5 @@ dialog{color:var(--text);background:var(--bg);border:1px solid var(--line);paddi
 .work-wide .view-work>span{background:var(--accent);color:var(--bg);width:28px;height:28px;display:grid;place-items:center}
 
 .cast-heading .eyebrow,.cast-jumps button{color:var(--accent)}
+
+.cast-section{background:#39252e;--line:#6b4c59;--muted:#c5b9c2}
